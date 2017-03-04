@@ -2,15 +2,6 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
  
- var name = "Radosław Jakubiak";
- var role = "Community Specialist and Web Developer in training";
- 
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
 var bio = {
 	"name": "Radosław Jakubiak",
 	"role": "Community Specialist and Web Developer in training",
@@ -21,15 +12,30 @@ var bio = {
 	"skills": ["HTML", "CSS", "SASS", "JavaScript", "Community Management",]
 };
 
-var formattedContactMail = HTMLemail.replace("%data%", bio.contactMail);
-var formattedContactGithub = HTMLgithub.replace("%data%", bio.contactGithub);
-var formattedPictureurl = HTMLbioPic.replace("%data%", bio.pictureUrl);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+var work = {
+	"currentPosition": "Community Manager",
+	"currentEmployer": "Crytek",
+	"yearsWorked": 2,
+	"cityWorked": "Frankfurt am Main"
+};
 
-$("#header").append(formattedContactMail);
-$("#header").append(formattedContactGithub);
-$("#header").append(formattedPictureurl);
-$("#header").append(formattedWelcomeMsg);
-$("#header").append(HTMLskillsStart);
-$("#header").append(formattedSkills);
+var project = {
+	"name": "None"
+};
+
+var education = [
+	{
+		"name": "University of Wroclaw",
+		"city": "Wroclaw, Poland",
+		"majors": ["European Law", "Business English", "Organization Theory"],
+		"minors": ["History of political thought", "Federalism and regional policy", "Media", "Diplomacy"],
+		"years": 2012	
+	},
+	{
+		"name": "University of Wroclaw",
+		"city": "Wroclaw, Poland",
+		"majors": ["History of politics", "German", "Something Very Boring"],
+		"minors": ["History of political thought", "Communication", "Psychology", "Diplomacy"],
+		"years": 2010
+	}
+];
