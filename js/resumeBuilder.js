@@ -8,6 +8,7 @@ var bio = {
 	"mobile": "0049 1764 7578 970",
 	"email": "radoslawjakubiak@gmail.com",
 	"github": "https://github.com/Vielo/",
+	"linkedIn": "https://www.linkedin.com/in/radoslaw-jakubiak/",
 	"bioPic": "images/photo.jpg",
 	"location": "Schwalbach am Taunus (Frankfurt area)",
 	"welcomeMsg": "I am an experienced community, social media and marketing specialist. I understand the challenges and opportunities of the digital world. I remain reliable, hard-working, open minded, friendly and a quick learner regardless of the project I am assigned to.",
@@ -16,17 +17,15 @@ var bio = {
 
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formattedName);
-$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
-$("#header").append(HTMLmobile.replace("%data%", bio.mobile));
-$("#header").append(HTMLemail.replace("%data%", bio.email));
-$("#header").append(HTMLgithub.replace("%data%", bio.github));
-$("#header").append(HTMLlocation.replace("%data%", bio.location));
-
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").prepend(formattedName + formattedRole);
 $("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
 $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg));
-
-
+$("#topContacts").append(HTMLmobile.replace("%data%", bio.mobile));
+$("#topContacts").append(HTMLemail.replace("%data%", bio.email));
+$("#topContacts").append(HTMLgithub.replace("%data%", bio.github));
+$("#topContacts").append(HTMLlocation.replace("%data%", bio.location));
+$("#topContacts").append(HTMLlinkedIn.replace("%data%", bio.linkedIn));
 
 
 if (bio.skills.length > 0) {
@@ -72,6 +71,35 @@ var project = {
 	"name": "None"
 };
 
+var projects = [
+	{
+		"title": "Project 1",
+		"dates": "13rd March 1988 - 29th February 1997",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac arcu eros. Donec facilisis sem elit, non tincidunt nisl consequat ut. Pellentesque vel dui eros. Maecenas laoreet, nisl non sodales ornare, massa eros varius augue, non hendrerit elit lectus non magna. Suspendisse potenti. Phasellus luctus dui congue nisi molestie, eu efficitur turpis ultrices. Curabitur quis nisi laoreet, molestie libero nec, iaculis ipsum. Vestibulum consequat, quam sit amet iaculis tincidunt, dui est pulvinar enim, sed sollicitudin nisi odio et massa. Duis ac urna commodo, mollis odio in, sagittis purus. Cras commodo ligula sed mattis posuere.",
+		"image": "images/project1.png"
+	},
+	{
+		"title": "The second project",
+		"dates": "19th October 1999 - 11th January 2018",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac arcu eros. Donec facilisis sem elit, non tincidunt nisl consequat ut. Pellentesque vel dui eros. Maecenas laoreet, nisl non sodales ornare, massa eros varius augue, non hendrerit elit lectus non magna. Suspendisse potenti. Phasellus luctus dui congue nisi molestie, eu efficitur turpis ultrices. Curabitur quis nisi laoreet, molestie libero nec, iaculis ipsum. Vestibulum consequat, quam sit amet iaculis tincidunt, dui est pulvinar enim, sed sollicitudin nisi odio et massa. Duis ac urna commodo, mollis odio in, sagittis purus. Cras commodo ligula sed mattis posuere.",
+		"image": "images/project2.jpg"
+	}
+];
+
+projects.display = function() {
+	if (projects.length > 0) {
+		for (var i = 0; i < projects.length; i++) {
+			$("#projects").append(HTMLprojectStart);
+			$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects[i].title));
+			$(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects[i].dates));
+			$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects[i].description));
+			$(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects[i].image));
+		}
+	};
+};
+
+projects.display();
+
 var education = [
 	{
 		"name": "University of Wroclaw",
@@ -88,3 +116,14 @@ var education = [
 		"years": 2010
 	}
 ];
+
+$("#main").append(internationalizeButton);
+var inName = function(name) {
+  var splitArray = name.split(" ");
+  var name1 = splitArray[0];
+  var name1edit = name1.slice(0,1).toUpperCase();
+  name1 = name1edit + name1.slice(1).toLowerCase();
+  var name2 = splitArray[1].toUpperCase();
+  return name1 + " " + name2;
+};
+
